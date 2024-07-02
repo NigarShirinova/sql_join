@@ -68,6 +68,17 @@ JOIN Customers ON Customers.Id = Orders.CustomerID
 GROUP BY CustomerID, Name 
 ORDER BY COUNT(CustomerID) DESC
 
+SELECT ORDERS.OrderDate
+FROM ORDERS 
+JOIN Sellers  ON ORDERS.SellerID = Sellers.Id
+WHERE ORDERS.State = 0
+ORDER BY ORDERS.OrderDate;
+
+
+SELECT *
+FROM Orders
+WHERE State = 1
+  AND OrderDate BETWEEN DATEADD(MONTH, -1, GETDATE()) AND GETDATE();
 
 
 
